@@ -13,7 +13,7 @@ export function Hero() {
     >
       <div className="relative min-h-[42vh] w-full lg:min-h-0 lg:w-1/2">
         <Image
-          src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=2400&q=80"
+          src="/photos/hero-portfolio.jpeg"
           alt="Imagem de destaque do portfólio"
           fill
           priority

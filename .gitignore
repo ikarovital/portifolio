@@ -42,3 +42,6 @@ next-env.d.ts
 
 # capturas locais (opcional)
 /capturas
+
+# cópia em public/photos é a versão servida; ignore duplicata na raiz
+/WhatsApp Image*.jpeg
