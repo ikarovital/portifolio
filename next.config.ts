@@ -8,8 +8,17 @@ const nextConfig: NextConfig = {
   turbopack: { root: process.cwd() },
   basePath: basePath || undefined,
   assetPrefix: basePath ? `${basePath}/` : undefined,
+  /** Usado em `publicAsset()` para imagens em `public/` (Image src, PHOTOS.url) */
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   images: {
     unoptimized: true,
+    /** Next.js 16: restringe quais caminhos locais o `next/image` aceita */
+    localPatterns: [
+      { pathname: `${basePath}/photos/**`, search: "" },
+      { pathname: `${basePath}/logo-marca.png`, search: "" },
+    ],
   },
 };
 

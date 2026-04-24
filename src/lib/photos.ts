@@ -1,3 +1,5 @@
+import { publicAsset } from "@/lib/assetUrl";
+
 export type PhotoCategory =
   | "Casamento"
   | "Retrato"
@@ -13,8 +15,8 @@ export type Photo = {
   alt: string;
 };
 
-/** Imagens em `public/photos/` — servidas em `/photos/nome-do-arquivo` */
-const IMG = "/photos/hero-portfolio.jpeg";
+/** Imagens em `public/photos/` — com prefixo do GitHub Pages quando existir */
+const IMG = publicAsset("/photos/hero-portfolio.jpeg");
 
 export const PHOTOS: Photo[] = [
   {

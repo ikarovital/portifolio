@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { BrandLogo } from "@/components/BrandLogo";
+import { publicAsset } from "@/lib/assetUrl";
 
 export function Hero() {
   return (
@@ -13,7 +14,7 @@ export function Hero() {
     >
       <div className="relative min-h-[42vh] w-full lg:min-h-0 lg:w-1/2">
         <Image
-          src="/photos/hero-portfolio.jpeg"
+          src={publicAsset("/photos/hero-portfolio.jpeg")}
           alt="Imagem de destaque do portfólio"
           fill
           priority

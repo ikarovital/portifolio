@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { publicAsset } from "@/lib/assetUrl";
 
 type Size = "sm" | "md" | "lg";
 
@@ -30,7 +31,7 @@ export function BrandLogo({
       className={`block shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-mustard/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cream ${className}`}
     >
       <Image
-        src="/logo-marca.png"
+        src={publicAsset("/logo-marca.png")}
         alt="Tayane — Direção Criativa"
         width={520}
         height={145}
