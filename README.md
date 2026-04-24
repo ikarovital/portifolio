@@ -4,51 +4,73 @@ Site em [Next.js](https://nextjs.org/) (App Router) + TypeScript + Tailwind CSS.
 
 Repositório: [github.com/ikarovital/portifolio](https://github.com/ikarovital/portifolio)
 
-## Rodar no computador
+---
+
+## Publicar na internet (acessar de **qualquer lugar**)
+
+O jeito mais simples para ter um endereço **`https://…`** estável é hospedar na **Vercel** (grátis para projetos pessoais).
+
+### Opção A — Importar pelo site da Vercel
+
+1. Crie uma conta em [vercel.com](https://vercel.com) (pode usar “Continue with GitHub”).
+2. Em **Add New… → Project**, escolha o repositório **`ikarovital/portifolio`**.
+3. Deixe as opções padrão (framework **Next.js** detectado automaticamente) e clique em **Deploy**.
+4. Ao terminar, a Vercel mostra o link, por exemplo **`https://portifolio-xxx.vercel.app`**. Esse link funciona no mundo todo (PC, celular, outra rede).
+
+A cada `git push` na branch principal, você pode ativar **deploy automático** no painel do projeto (integração Git).
+
+### Opção B — Link direto para começar o import
+
+Abra (logado na Vercel):
+
+**[Importar `ikarovital/portifolio` na Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fikarovital%2Fportifolio)**
+
+Se a página pedir, autorize a Vercel a acessar seus repositórios no GitHub.
+
+---
+
+## Rodar só no computador (desenvolvimento)
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abra `http://localhost:3000`. No terminal também aparece o endereço **Network** (IP da sua máquina).
+Abra `http://localhost:3000`.
 
-## Ver no celular (mesma rede Wi‑Fi)
+---
 
-1. No PC, deixe `npm run dev` rodando.
-2. Confira no terminal a linha **Network** (ex.: `http://192.168.0.21:3000`).
-3. No celular, conectado ao **mesmo Wi‑Fi**, abra esse endereço no navegador.
+## Alternativas (não substituem o deploy)
 
-## Ver no celular (qualquer lugar — link público temporário)
+- **Mesma rede Wi‑Fi:** com `npm run dev`, use o endereço **Network** do terminal no outro aparelho.
+- **Link temporário:** `npm run tunnel` (com o dev rodando) gera uma URL `https://….trycloudflare.com` válida só enquanto o processo estiver ativo.
 
-1. Terminal 1: `npm run dev`
-2. Terminal 2: `npm run tunnel`
-3. O Cloudflare Tunnel imprime uma URL `https://....trycloudflare.com` — use no celular (válida enquanto o processo estiver rodando).
+---
 
-## Publicar na internet (link fixo)
+## Enviar alterações para o GitHub
 
-1. Envie o código para o GitHub (veja seção abaixo).
-2. Em [vercel.com/new](https://vercel.com/new), importe o repositório `ikarovital/portifolio`.
-3. A Vercel gera um endereço `https://seu-projeto.vercel.app` acessível de qualquer lugar.
+```bash
+git add .
+git commit -m "sua mensagem"
+git push origin main
+```
 
-## Enviar código para o GitHub
+Se ainda não configurou o remoto:
 
 ```bash
 git remote add origin https://github.com/ikarovital/portifolio.git
 git branch -M main
-git add .
-git commit -m "Portfólio Next.js"
 git push -u origin main
 ```
 
-Se o `remote` já existir, use apenas `git push -u origin main`.
+---
 
-## Captura de tela do site inteiro
+## Captura de tela do site inteiro (local)
 
-Com o dev server rodando:
+Com `npm run dev` em um terminal:
 
 ```bash
 npm run capture:full
 ```
 
-Saída em `capturas/portfolio-site-inteiro.png`.
+Saída em `capturas/portfolio-site-inteiro.png` (pasta ignorada pelo Git).
