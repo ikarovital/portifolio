@@ -6,48 +6,61 @@ Repositório: [github.com/ikarovital/portifolio](https://github.com/ikarovital/p
 
 ---
 
-## Publicar na internet (acessar de **qualquer lugar**)
+## Publicar no **GitHub Pages** (link `https://…` em qualquer lugar)
 
-O jeito mais simples para ter um endereço **`https://…`** estável é hospedar na **Vercel** (grátis para projetos pessoais).
+O projeto gera um site **estático** (`output: "export"`) e o GitHub Actions envia para o **GitHub Pages** automaticamente a cada push na branch `main`.
 
-### Opção A — Importar pelo site da Vercel
+### 1. Ativar Pages no repositório
 
-1. Crie uma conta em [vercel.com](https://vercel.com) (pode usar “Continue with GitHub”).
-2. Em **Add New… → Project**, escolha o repositório **`ikarovital/portifolio`**.
-3. Deixe as opções padrão (framework **Next.js** detectado automaticamente) e clique em **Deploy**.
-4. Ao terminar, a Vercel mostra o link, por exemplo **`https://portifolio-xxx.vercel.app`**. Esse link funciona no mundo todo (PC, celular, outra rede).
+1. No GitHub: abra o repo **portifolio** → **Settings** → **Pages**.
+2. Em **Build and deployment** → **Source**, escolha **GitHub Actions** (não “Deploy from a branch”).
 
-A cada `git push` na branch principal, você pode ativar **deploy automático** no painel do projeto (integração Git).
+### 2. Disparar o deploy
 
-### Opção B — Link direto para começar o import
+Faça push (o workflow `.github/workflows/deploy-github-pages.yml` já está no repo):
 
-Abra (logado na Vercel):
+```bash
+git push origin main
+```
 
-**[Importar `ikarovital/portifolio` na Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fikarovital%2Fportifolio)**
+Ou em **Actions** → workflow **Deploy GitHub Pages** → **Run workflow**.
 
-Se a página pedir, autorize a Vercel a acessar seus repositórios no GitHub.
+### 3. Endereço do site
+
+Com usuário `ikarovital` e repositório `portifolio`, o endereço fica:
+
+**[https://ikarovital.github.io/portifolio/](https://ikarovital.github.io/portifolio/)**
+
+Se você **renomear o repositório**, a URL muda (`/novo-nome`) e o workflow já usa o nome atual no `basePath` do build.
 
 ---
 
-## Rodar só no computador (desenvolvimento)
+## Rodar no computador (desenvolvimento)
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abra `http://localhost:3000`.
+Abra `http://localhost:3000` (sem prefixo; o prefixo `/portifolio` só entra no build do GitHub Pages).
+
+### Build local igual ao da Pages (opcional)
+
+```powershell
+$env:BASE_PATH="/portifolio"; npm run build
+```
+
+A pasta `out/` reflete o que sobe para o GitHub Pages.
 
 ---
 
-## Alternativas (não substituem o deploy)
+## Outras hospedagens (opcional)
 
-- **Mesma rede Wi‑Fi:** com `npm run dev`, use o endereço **Network** do terminal no outro aparelho.
-- **Link temporário:** `npm run tunnel` (com o dev rodando) gera uma URL `https://….trycloudflare.com` válida só enquanto o processo estiver ativo.
+Na [Vercel](https://vercel.com/new) você também pode importar o mesmo repositório; o `output: "export"` é compatível com deploy estático.
 
 ---
 
-## Enviar alterações para o GitHub
+## Enviar alterações
 
 ```bash
 git add .
@@ -55,22 +68,14 @@ git commit -m "sua mensagem"
 git push origin main
 ```
 
-Se ainda não configurou o remoto:
-
-```bash
-git remote add origin https://github.com/ikarovital/portifolio.git
-git branch -M main
-git push -u origin main
-```
-
 ---
 
 ## Captura de tela do site inteiro (local)
 
-Com `npm run dev` em um terminal:
+Com `npm run dev` rodando:
 
 ```bash
 npm run capture:full
 ```
 
-Saída em `capturas/portfolio-site-inteiro.png` (pasta ignorada pelo Git).
+Saída em `capturas/` (pasta ignorada pelo Git).
