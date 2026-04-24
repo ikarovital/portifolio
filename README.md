@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Tayane / Direção criativa
 
-## Getting Started
+Site em [Next.js](https://nextjs.org/) (App Router) + TypeScript + Tailwind CSS.
 
-First, run the development server:
+Repositório: [github.com/ikarovital/portifolio](https://github.com/ikarovital/portifolio)
+
+## Rodar no computador
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra `http://localhost:3000`. No terminal também aparece o endereço **Network** (IP da sua máquina).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Ver no celular (mesma rede Wi‑Fi)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. No PC, deixe `npm run dev` rodando.
+2. Confira no terminal a linha **Network** (ex.: `http://192.168.0.21:3000`).
+3. No celular, conectado ao **mesmo Wi‑Fi**, abra esse endereço no navegador.
 
-## Learn More
+## Ver no celular (qualquer lugar — link público temporário)
 
-To learn more about Next.js, take a look at the following resources:
+1. Terminal 1: `npm run dev`
+2. Terminal 2: `npm run tunnel`
+3. O Cloudflare Tunnel imprime uma URL `https://....trycloudflare.com` — use no celular (válida enquanto o processo estiver rodando).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Publicar na internet (link fixo)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Envie o código para o GitHub (veja seção abaixo).
+2. Em [vercel.com/new](https://vercel.com/new), importe o repositório `ikarovital/portifolio`.
+3. A Vercel gera um endereço `https://seu-projeto.vercel.app` acessível de qualquer lugar.
 
-## Deploy on Vercel
+## Enviar código para o GitHub
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git remote add origin https://github.com/ikarovital/portifolio.git
+git branch -M main
+git add .
+git commit -m "Portfólio Next.js"
+git push -u origin main
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Se o `remote` já existir, use apenas `git push -u origin main`.
+
+## Captura de tela do site inteiro
+
+Com o dev server rodando:
+
+```bash
+npm run capture:full
+```
+
+Saída em `capturas/portfolio-site-inteiro.png`.
